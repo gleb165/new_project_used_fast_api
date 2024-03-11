@@ -3,11 +3,18 @@ from fastapi.responses import RedirectResponse
 
 from planner.routes.users import user_router
 from planner.routes.events import event_router
+from planner.database.connection import Settings
 
 
 import uvicorn
 
 app = FastAPI()
+s = Settings()
+
+
+@app.on_event("startup")
+async def init_db():
+    await s.initialize_database()
 
 # Register routes
 
