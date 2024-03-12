@@ -3,6 +3,7 @@ from beanie import Document
 
 
 class Event(Document):
+    creator: str | None = None
     title: str
     image: str
     descriptions: str

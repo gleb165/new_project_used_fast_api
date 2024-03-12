@@ -5,12 +5,22 @@ from planner.routes.users import user_router
 from planner.routes.events import event_router
 from planner.database.connection import Settings
 
+from fastapi.middleware.cors import CORSMiddleware
 
 import uvicorn
+
+origins = ["*"]
 
 app = FastAPI()
 s = Settings()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.on_event("startup")
 async def init_db():

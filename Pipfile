@@ -9,6 +9,8 @@ uvicorn = "*"
 pydantic = {extras = ["email"], version = "*"}
 beanie = "*"
 pymongo = "*"
+cryptography = "*"
+python-jose = "*"
 
 [dev-packages]
 pytest = "*"

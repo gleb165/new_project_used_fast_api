@@ -10,7 +10,8 @@ from pymongo import MongoClient
 
 
 class Settings(BaseSettings):
-    DATABASE_URL: Optional[str] = 'mongodb://localhost:27017/planner'
+    DATABASE_URL: str | None = 'mongodb://localhost:27017/planner'
+    SECRET_KEY: str | None = 'HI5HL3V3L$3CR3T'
 
     async def initialize_database(self):
         client = AsyncIOMotorClient(self.DATABASE_URL)
